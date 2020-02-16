@@ -119,11 +119,10 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
 		Set<Ingredient> ingredients = new HashSet<>();
 
-		guacRecipe.getIngredients().add(new Ingredient(new BigDecimal(2), "ripe avocados", wholeUom, guacRecipe));
-		guacRecipe.getIngredients().add(new Ingredient(new BigDecimal(.25), "salt", teaSpoonUom, guacRecipe));
-		guacRecipe.getIngredients().add(new Ingredient(new BigDecimal(1), "lime juice", tableSpoonUom, guacRecipe));
-		guacRecipe.getIngredients()
-				.add(new Ingredient(new BigDecimal(1), "freshly grated black pepper", dashUom, guacRecipe));
+		guacRecipe.addIngredient(new Ingredient(new BigDecimal(2), "ripe avocados", wholeUom));
+		guacRecipe.addIngredient(new Ingredient(new BigDecimal(.25), "salt", teaSpoonUom));
+		guacRecipe.addIngredient(new Ingredient(new BigDecimal(1), "lime juice", tableSpoonUom));
+		guacRecipe.addIngredient(new Ingredient(new BigDecimal(1), "freshly grated black pepper", dashUom));
 
 		guacRecipe.setServings(4);
 		guacRecipe.setCookTime(0);
