@@ -9,6 +9,16 @@ import java.math.BigDecimal;
 @Entity
 public class Ingredient {
 
+	public Ingredient() {
+	}
+
+	public Ingredient(BigDecimal amount, String description, UnitOfMeasure unitOfMeasure, Recipe recipe) {
+		this.amount = amount;
+		this.description = description;
+		this.unitOfMeasure = unitOfMeasure;
+		this.recipe = recipe;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

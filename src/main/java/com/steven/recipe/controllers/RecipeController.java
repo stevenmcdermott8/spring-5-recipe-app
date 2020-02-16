@@ -6,21 +6,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * stevmc created on 2/15/20
+ * stevmc created on 2/16/20
  */
 @Controller
-public class IndexController {
+public class RecipeController {
 
 	private final RecipeService recipeService;
 
-	public IndexController(RecipeService recipeService) {
+	public RecipeController(RecipeService recipeService) {
 		this.recipeService = recipeService;
 	}
 
-	@RequestMapping({ "", "/", "/index" })
-	public String getIndexPage(Model model) {
+	@RequestMapping("/recipes")
+	public String getAllRecipes(Model model) {
 		model.addAttribute("recipes", recipeService.getRecipes());
-		return "index";
-	}
 
+		return "recipes/list";
+	}
 }

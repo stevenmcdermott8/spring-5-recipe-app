@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe List</title>
+</head>
+<body>
+
+<h2 th:text="'Recipe List'"></h2>
+<div th:each="recipe : ${recipes}">
+    <p th:text="${recipe.getUrl()}"></p>
+    <p th:text="${recipe.getDescription()}"></p>
+
+    <h3 th:text="'Categories'"></h3>
+    <div th:each="category : ${recipe.getCategories()}">
+        <p th:text="${category.getDescription()}"></p>
+    </div>
+
+    <h3 th:text="'Info'"></h3>
+    <p th:text="'Cook time ' + ${recipe.getCookTime()} + ' minutes'"></p>
+    <p th:text="'Prep time ' + ${recipe.getPrepTime()} + ' minutes'"></p>
+    <p th:text="'Servings ' + ${recipe.getServings()}"></p>
+    <p th:text="'Difficulty ' + ${recipe.getDifficulty().toString()}"></p>
+
+    <h3 th:text="'Ingredients'"></h3>
+    <div th:each="ingredient : ${recipe.getIngredients()}">
+        <p th:text="${ingredient.getAmount()} + ' ' + ${ingredient.getDescription()}"></p>
+    </div>
+
+    <h3 th:text="'Directions'"></h3>
+    <div th:text="${recipe.getDirections()}"></div>
+
+    <h3 th:text="'Notes'"></h3>
+    <p th:text="${recipe.getNotes().getRecipeNotes()}"></p>
+
+</div>
+
+</body>
+</html>
