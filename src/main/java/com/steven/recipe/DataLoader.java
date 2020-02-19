@@ -4,6 +4,7 @@ import com.steven.recipe.domain.*;
 import com.steven.recipe.repositories.CategoryRepository;
 import com.steven.recipe.repositories.RecipeRepository;
 import com.steven.recipe.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.util.*;
 /**
  * stevmc created on 2/16/20
  */
+@Slf4j
 @Component
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -35,7 +37,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
 	public List<Recipe> getRecipes() {
 		List<Recipe> recipes = new ArrayList<>(2);
-		System.out.println("Loading Units of Measure.....");
+		log.info("Loading Units of Measure.....");
 		Optional<UnitOfMeasure> tablespoon = unitOfMeasureRepository.findByDescription("Tablespoon");
 		if (!tablespoon.isPresent()) {
 			throw new RuntimeException("Expected Unit of Measure Not Found");
