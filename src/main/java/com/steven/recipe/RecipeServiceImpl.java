@@ -23,6 +23,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 	@Override
 	public Set<Recipe> getRecipes() {
+		// this log is coming from the @Slf4j annotation from project lombok
 		log.info("the logger for recipe is working");
 		Set<Recipe> recipes = new HashSet<>();
 		recipeRepository.findAll().iterator().forEachRemaining(recipes::add);
