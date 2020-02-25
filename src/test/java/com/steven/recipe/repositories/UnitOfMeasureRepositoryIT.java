@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ class UnitOfMeasureRepositoryIT {
 	}
 
 	@Test
+	@DirtiesContext // this will reload the context during the test so its an updated context
 	public void findByDescriptionTeaspoon() {
 		// data is loaded by bootstrap class
 		Optional<UnitOfMeasure> uom = unitOfMeasureRepository.findByDescription("Teaspoon");
